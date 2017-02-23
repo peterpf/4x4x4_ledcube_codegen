@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>4x4x4 LED-Cube CodeGen</title>
+	<link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
+	<link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<div class="mdl-layout-spacer"></div>
+			<button id="main_menu-header" class="mdl-button mdl-js-button mdl-button--icon">
+				<i class="material-icons">more_vert</i>
+			</button>
+			<u class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="main_menu-header">
+				<li class="mdl-menu__item mdl-menu__item--full-bleed-divider" onclick="uploadCode()">Upload</li>
+				<li class="mdl-menu__item" onclick="downloadCode()">Download</li>
+			</u>
+		</div>
+	</header>
+	<div class="mdl-layout__drawer">
+		<span class="mdl-layout-title">Title</span>
+		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+		</nav>
+	</div>
+	<main class="mdl-layout__content">
+		<div class="mdl-grid">
+			<div class="cube-container mdl-cell mdl-cell--12-col mdl-cell--6-col-desktop mdl-grid mdl-grid--no-spacing">
+				<ul id="layer-list" class="mdl-list mdl-cell mdl-cell--1-col" style="min-width: 55px">
+					<li><button class="mdl-button mdl-js-button" disabled>Layer</li>
+					<li><button id="btn_sel_l_3" class="mdl-button mdl-js-button" onclick="selectLayer(3)">4</button></li>
+					<li><button id="btn_sel_l_2" class="mdl-button mdl-js-button" onclick="selectLayer(2)">3</button></li>
+					<li><button id="btn_sel_l_1" class="mdl-button mdl-js-button" onclick="selectLayer(1)">2</button></li>
+					<li><button id="btn_sel_l_0" class="mdl-button mdl-js-button" onclick="selectLayer(0)">1</button></li>
+				</ul>
+				<div id="canvas-holder" class="mdl-cell mdl-cell--10-col-desktop mdl-cell--7-col-tablet mdl-cell--3-col"></div>
+				
+				<div class="mdl-cell mdl-cell--10-col-desktop mdl-cell--1-offset">
+					<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="disableAllLEDs()" id="btn_disable">
+					<i class="material-icons">remove_circle</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_disable">Disable</div>
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="toggleAllLEDs()" id="btn_toggle">
+					<i class="material-icons">invert_colors</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_toggle">Toggle</div>
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="enableAllLEDs()" id="btn_enable">
+					<i class="material-icons">add_circle</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_enable">Enable</div>
+				
+				
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="" id="btn_previous">
+					<i class="material-icons">skip_previous</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_previous">Previous</div>
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="" id="btn_play_pause">
+					<i class="material-icons">play_arrow</i>
+					<i class="material-icons">pause</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_play_pause">Play/Pause</div>
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="" id="btn_next">
+					<i class="material-icons">skip_next</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_next">Next</div>
+				<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="" id="btn_replay">
+					<i class="material-icons">replay</i>
+				</button>
+				<div class="mdl-tooltip" for="btn_replay">Replay</div>
+				</div>
+			</div>
+			<div class="cubelist-container mdl-cell mdl-cell--12-col mdl-cell--6-col-desktop mdl-grid mdl-grid--no-spacing">
+				<ul id="pattern-list" class="mdl-cell mdl-cell--12-col mdl-list"></ul>
+				<div class="mdl-cell mdl-cell--12-col mdl-cell--bottom">
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="addPattern()">NEW</button>
+					<button class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="removePattern()">REMOVE</button>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+
+<script src="node_modules/material-design-lite/material.min.js"></script>
+<script src="lib/p5.min.js"></script>
+<script src="lib/FileSaver.min.js"></script>
+<script src="src/js/helpers.js"></script>
+<script src="src/js/LED.js"></script>
+<script src="src/js/sketch.js"></script>
+<!--<script src="src/js/index.js"></script>-->
+</body>
+</html>

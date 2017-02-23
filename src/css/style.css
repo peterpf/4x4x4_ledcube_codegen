@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../../lib/font/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../lib/font/MaterialIcons-Regular.woff) format('woff'),
+       url(../../lib/font/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.cube-container {
+	min-height: 300px;
+	border: 1px solid #ddd;
+}
+.cubelist-container {
+	min-height: 300px;
+	border: 1px solid #ddd;
+}
+.cubecommands-container {
+	min-height: 300px;
+	border: 1px solid #ddd;
+}
+
+#pattern-list {
+	height: 100%;
+	max-height: 250px;
+	overflow-y: scroll;
+}
+#pattern-list .selected {
+	background-color: #ddd;
+}
+#layer-list > li > button {
+	padding: 0px;
+	min-width: 45px;
+}
