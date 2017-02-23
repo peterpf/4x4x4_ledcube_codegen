@@ -80,7 +80,7 @@ function downloadCode() {
 
 	outputText += 'const int values['+patternCode.length+'][4][2] = {\n' + patternCode.map(function(pattern){ return '  {' + pattern.map(function(layer){return '{' + (layer&0xFF) + ',' + ((layer&0xFF00)>>8) + '}';}) + '}\n'; }) + '};' + '\n';
 	outputText += 'const int delays['+patternList.length+'] = {' + patternList.map(function(pattern){ return pattern.delay; })+ '};\n';
-	
+
 	outputText += ''
 		+ 'void loop(){\n'
 		+ '  for(int i = 0; i < '+patternCode.length + '; i++){\n'
@@ -93,10 +93,10 @@ function downloadCode() {
 		+ '    }\n'
 		+ '  }\n'
 		+ '}';
-	console.log(outputText);
+	//console.log(outputText);
 
 	var blob = new Blob([outputText], { type: "text/plain;charset=utf-8" });
-	// saveAs(blob, FILE_NAME + "." + FILE_TYPE);
+	saveAs(blob, FILE_NAME + "." + FILE_TYPE);
 }
 
 
